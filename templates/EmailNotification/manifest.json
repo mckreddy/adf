@@ -6,5 +6,8 @@
 	],
 	"author": "mckreddy@yahoo.com",
 	"annotations": [],
-	"services": []
+	"services": [],
+	"folder": {
+		"name": "CommonPipelins"
+	}
 }
