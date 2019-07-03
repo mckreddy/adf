@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_n3q",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDb1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DocumentDbCollection",
+		"typeProperties": {
+			"collectionName": "iotYear"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

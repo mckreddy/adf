@@ -1,0 +1,39 @@
+{
+	"name": "EmailNotification",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-05.centralus.logic.azure.com:443/workflows/e1c1b8b6910e46c89aa99ae8b367b13a/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EpQCLALfZaNbqOdH1AJshl9dXCRY-74ZpyXNGjzMIVc",
+					"method": "POST",
+					"headers": {
+						"Conternt-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n    \"DataFactoryName\":\n        \"@{pipeline().DataFactory}\",\n    \"PipelineName\":\n        \"@{pipeline().Pipeline}\",\n    \"ErrorMessage\":\n        \"@{activity('Execute Package').error.message}\",\n    \"EmailTo\":\n        \"@pipeline().parameters.EmailTo\"\n}\n",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"EmailTo": {
+				"type": "string",
+				"defaultValue": "krishnam@techwave.net"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
